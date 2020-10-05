@@ -8,11 +8,14 @@ module.exports = function towelSort (matrix) {
   let newMatrix = []
     for(var i = 0; i < matrix.length; i++) {
       if(i!= 0 && i % 2) {
-         newMatrix.concat(matrix[i].reverse())
+         newMatrix[i] = matrix[i].reverse()
       } else {
-        newMatrix.concat(matrix[i])
+      newMatrix[i] = matrix[i];
       }
     }
-    return newMatrix;
+    return newMatrix.reduce(
+      (result, element) => result.concat(element),
+      []
+    );
 }
 
